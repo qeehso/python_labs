@@ -1,4 +1,5 @@
-# python_labs
-Laboratories on python bivt 26-6-1
+It's a repository for labs in python.
+student: Nikita Usachik Olegovich
+teacher: ALexandr Andreevich
+group: bivt 26-6-1
 
-student: Usachik Nikita Olegovich
