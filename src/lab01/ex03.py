@@ -1,11 +1,11 @@
-price = float(input("Введите цену товара:"))
+price = float(input("price:"))
 
-discount = float(input("Введите скидку в процентах:"))
+discount = float(input("discount:"))
 if discount < 0 or discount > 100:  # logical )))
     print("Ошибка: скидка должна быть в диапазоне от 0 до 100 процентов.")
     exit()
 
-vat = float(input('Введите НДС в процентах::'))
+vat = float(input('vat:'))
 if vat < 0 or vat > 100:  # also logical
     print("Ошибка: НДС должен быть в диапазоне от 0 до 100 процентов.")
     exit()

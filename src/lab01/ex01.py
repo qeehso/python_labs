@@ -1,5 +1,5 @@
-print('Введите ваше имя')
+print('Имя:')
 name = input()
-print('Введите ваш возраст')
+print('Возраст:')
 age = input()
 print(f'Привет, {name}! Через год тебе будет {int(age) + 1}')
