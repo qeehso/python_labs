@@ -59,12 +59,3 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
         result.append(summa)
 
     return result
-
-print(f'col_sums([[1, 2, 3], [4, 5, 6]]) ->', col_sums([[1, 2, 3], [4, 5, 6]]))
-print(f'col_sums([[-1, 1], [10, -10]]) ->', col_sums([[-1, 1], [10, -10]]))
-print(f'col_sums([[0, 0], [0, 0]]) ->', col_sums([[0, 0], [0, 0]]))
-
-try:
-    print(f'col_sums([[1, 2], [3]]) ->', col_sums([[1, 2], [3]]))
-except ValueError as error:
-    print(f'col_sums([[1, 2], [3]]) -> ValueError: {error}')
