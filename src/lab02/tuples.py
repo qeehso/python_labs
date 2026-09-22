@@ -1,6 +1,6 @@
 def format_record(rec: tuple[str, str, float]) -> str:
     """Возвращает форматированную строку из кортежа
-    В формате: Иванов И.И., гр. BIVT-26, GPA 5.00"""
+    В формате: g"""
 
 
     if not rec[0].strip():
