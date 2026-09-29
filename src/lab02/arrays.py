@@ -52,3 +52,32 @@ def flatten(mat: list[list | tuple]) -> list:
             result.append(element)
 
     return result
+
+# Тест кейсы
+# min_max
+print(f'min_max([3, -1, 5, 5, 0]) ->', min_max([3, -1, 5, 5, 0]))
+print(f'min_max([42]) ->', min_max([42]))
+print(f'min_max([-5, -2, -9]) ->', min_max([-5, -2, -9]))
+print(f'min_max([1.5, 2, 2.0, -3.1]) ->', min_max([1.5, 2, 2.0, -3.1]))
+
+try:
+    print(f'min_max([]) ->', min_max([]))
+except ValueError as error:
+    print(f'min_max([]) -> ValueError: {error}')
+
+# unique_sorted
+print(f'unique_sorted([3, 1, 2, 1, 3]) ->', unique_sorted([3, 1, 2, 1, 3]))
+print(f'unique_sorted([]) ->', unique_sorted([]))
+print(f'unique_sorted([-1, -1, 0, 2, 2]) ->', unique_sorted([-1, -1, 0, 2, 2]))
+print(f'unique_sorted([1.0, 1, 2.5, 2.5, 0]) ->', unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+
+# flatten
+print(f'flatten([[1, 2], [3, 4]]) ->', flatten([[1, 2], [3, 4]]))
+print(f'flatten([[1, 2], (3, 4, 5)]) ->', flatten([[1, 2], (3, 4, 5)]))
+print(f'flatten([[1], [], [2, 3]]) ->', flatten([[1], [], [2, 3]]))
+
+try:
+    print(f'flatten([[1, 2], "ab"]) ->', flatten([[1, 2], "ab"]))
+except TypeError as error:
+    print(f'flatten([[1, 2], "ab"]) -> TypeError: {error}')
+

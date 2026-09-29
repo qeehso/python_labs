@@ -59,3 +59,37 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
         result.append(summa)
 
     return result
+
+
+# Тест кейсы
+# transpose
+
+print(f'transpose([[1, 2, 3]]) ->', transpose([[1, 2, 3]]))
+print(f'transpose([[1], [2], [3]]) ->', transpose([[1], [2], [3]]))
+print(f'transpose([[1, 2], [3, 4]]) ->', transpose([[1, 2], [3, 4]]))
+print(f'transpose([]) ->', transpose([]))
+
+try:
+    print(f'transpose([[1, 2], [3]]) ->', transpose([[1, 2], [3]]))
+except ValueError as error:
+    print(f'transpose([[1, 2], [3]]) -> ValueError: {error}')
+
+# row_sums
+print(f'row_sums([[1, 2, 3], [4, 5, 6]]) ->', row_sums([[1, 2, 3], [4, 5, 6]]))
+print(f'row_sums([[-1, 1], [10, -10]]) ->', row_sums([[-1, 1], [10, -10]]))
+print(f'row_sums([[0, 0], [0, 0]]) ->', row_sums([[0, 0], [0, 0]]))
+
+try:
+    print(f'row_sums([[1, 2], [3]]) ->', row_sums([[1, 2], [3]]))
+except ValueError as error:
+    print(f'row_sums([[1, 2], [3]]) -> ValueError: {error}')
+
+# col_sums
+print(f'col_sums([[1, 2, 3], [4, 5, 6]]) ->', col_sums([[1, 2, 3], [4, 5, 6]]))
+print(f'col_sums([[-1, 1], [10, -10]]) ->', col_sums([[-1, 1], [10, -10]]))
+print(f'col_sums([[0, 0], [0, 0]]) ->', col_sums([[0, 0], [0, 0]]))
+
+try:
+    print(f'col_sums([[1, 2], [3]]) ->', col_sums([[1, 2], [3]]))
+except ValueError as error:
+    print(f'col_sums([[1, 2], [3]]) -> ValueError: {error}')
