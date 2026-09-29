@@ -1,6 +1,15 @@
 def format_record(rec: tuple[str, str, float]) -> str:
-    """Возвращает форматированную строку из кортежа
-    В формате: g"""
+    """Форматирует запись студента в виде строки.
+
+    ФИО должно содержать фамилию и имя или фамилию, имя и отчество.
+    Лишние пробелы удаляются.
+
+    Raises:
+        TypeError: если rec не является tuple, ФИО или группа пустые,
+            либо GPA имеет неверный тип.
+        ValueError: если tuple имеет неверную длину, ФИО содержит
+            неверное количество слов или GPA находится вне диапазона 0..5 
+    """
 
     if not isinstance(rec, tuple):
         raise TypeError("Не тот тип входных данных: нужен tuple")
@@ -16,6 +25,14 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
     if not isinstance(rec[2], (int, float)):
         raise TypeError("Неверный тип GPA (GPA должен быть float или int)")
+
+    if rec[2] < 0 or rec[2] > 5:
+        raise ValueError('GPA должно быть от 0 до 5')
+
+    if len(rec[0].split()) != 3 and len(rec[0].split()) != 2: 
+        raise ValueError('либо ФИ, либо ФИО')
+
+
 
     fio = rec[0]
     group = 'гр. ' + rec[1].strip()
