@@ -2,6 +2,11 @@ def format_record(rec: tuple[str, str, float]) -> str:
     """Возвращает форматированную строку из кортежа
     В формате: g"""
 
+    if not isinstance(rec, tuple):
+        raise TypeError("Не тот тип входных данных: нужен tuple")
+
+    if len(rec) != 3:
+        raise ValueError("Неправильная длина кортежа")
 
     if not rec[0].strip():
         raise TypeError("Пустое ФИО")
