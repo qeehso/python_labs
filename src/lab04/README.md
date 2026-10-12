@@ -45,6 +45,14 @@ python src/lab04/text_report.py
 
 Рис. 2. Результат запуска скрипта для 1 входного файла.
 
+## Кодировка cp1251
+```bash
+python src/lab04/text_report.py --in data/lab04/input.txt --encoding cp1251
+```
+
+
+ ![alt text](../../images/lab04/2_encode_1251.png)
+
 ## Пример запуска для нескольких файлов
 
 ```bash
