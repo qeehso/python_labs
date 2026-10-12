@@ -85,3 +85,5 @@ def write_csv( rows: Iterable[Sequence],
 # print(read_text(r"C:\Users\никита\python_labs\data\lab04\input.txt", encoding="utf-8"))
 # txt = read_text(r"C:\Users\никита\python_labs\data\lab04\input.txt")  # должен вернуть строку
 # write_csv([("word","count"),("test",3)], "data/check.csv", header= (["что-то"]))  # создаст CSV
+
+write_csv([("word","count"),("test",3)], "data/check.csv") 
