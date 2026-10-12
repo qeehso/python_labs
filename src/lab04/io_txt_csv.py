@@ -53,22 +53,21 @@ def write_csv( rows: Iterable[Sequence],
     """
     rows = list(rows)
 
-    if rows:
-        expected_length = len(rows[0])
+    expected_length = (
+    len(rows[0])
+    if rows
+    else len(header) if header is not None
+    else None
+)
 
+    if rows:
         for index, row in enumerate(rows, start=1):
             if len(row) != expected_length:
                 raise ValueError(
                     f"Строка {index} содержит {len(row)} значений, "
                     f"ожидалось {expected_length}."
                 )
-
-    if header is not None and len(header) != expected_length:
-        raise ValueError(
-            f"Заголовок содержит {len(header)} столбцов, "
-            f"ожидалось {expected_length}."
-        )
-    
+            
     p = Path(path)
 
     ensure_parent_dir(p)
@@ -85,5 +84,3 @@ def write_csv( rows: Iterable[Sequence],
 # print(read_text(r"C:\Users\никита\python_labs\data\lab04\input.txt", encoding="utf-8"))
 # txt = read_text(r"C:\Users\никита\python_labs\data\lab04\input.txt")  # должен вернуть строку
 # write_csv([("word","count"),("test",3)], "data/check.csv", header= (["что-то"]))  # создаст CSV
-
-write_csv([("word","count"),("test",3)], "data/check.csv") 
