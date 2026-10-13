@@ -16,6 +16,9 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     Возвращает:
         Нормализованный текст.
     """
+
+    if not isinstance(text, str):
+        raise TypeError('text должен быть строкой')
     
     if casefold:
         text = text.casefold()
@@ -25,8 +28,12 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     if yo2e:
         text = text.replace('ё', 'е')
 
+
     text = text.strip()
     text = ' '.join(text.split())
+
+    if not text:
+        raise ValueError('пустая строка')
 
     return text
 
@@ -44,7 +51,9 @@ def tokenize(text: str) -> list[str]:
     Возвращает:
         Список токенов.
     """
-
+    if not isinstance(text, str):
+        raise TypeError('text должен быть строкой')
+    
     text = re.findall(r"\w+(?:-\w+)*", text)
 
     return text
@@ -60,6 +69,11 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
         Возвращает:
             Словарь, где ключ - это токен, а значение - это его частота.
         """   
+    if not isinstance(tokens, list):
+        raise TypeError('tokens должен быть списком')
+
+    if not all(isinstance(token, str) for token in tokens):
+        raise TypeError('все токены должны быть строками')
      
     freq = {}
 
@@ -87,6 +101,13 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
     Возвращает:
         Список пар (токен, частота).
     """
+
+    if not isinstance(freq, dict):
+        raise TypeError('freq должен быть словарём')
+    
+    if not freq:
+        raise ValueError('пустой словарь')
+    
 
     return sorted(freq.items(), key=lambda x: (-x[1], x[0]))[:n]
 
